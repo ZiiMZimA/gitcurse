@@ -1,0 +1,36 @@
+en
+conf t
+
+hostname SW1
+ip domain-name plastix.fr
+
+vlan 10
+name RH
+exit
+
+vlan 80
+name Informatique
+exit
+
+vlan 99
+name Gestion
+exit
+
+
+interface range fastethernet 0/1-10
+switchport mode access
+switchport access vlan 10
+no shutdown
+exit
+
+interface range fastethernet 0/11-20
+switchport mode access
+switchport access vlan 80
+no shutdown
+exit
+
+interface range gigabitethernet 0/1-2
+switchport mode trunk
+no shutdown
+exit
+
